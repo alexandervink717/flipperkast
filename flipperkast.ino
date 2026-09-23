@@ -17,10 +17,11 @@ void setup() {
 
 // Detects if the player died, handles free retry or round increment
 void PlayerDeadDection() {
-    if (!sensorBallDetectedLow() || !tilted()) return;
+    if (!sensorBallDetectedLow() && !tilted()) return;
+
 
     if (points <= pointsStart) {
-        Serial.println("Free retry!");
+        Serial.println("Free retry! No points won.");
     } else {
         GameRound++;
         points += 10;
@@ -35,31 +36,42 @@ void PlayerDeadDection() {
 void PointsBuffer(int addPoints, int bufferTime) {
     unsigned long now = millis();
     if (now - lastPointsTime < (unsigned long)bufferTime) return;
-
     lastPointsTime = now;
     points += addPoints;
 }
 
-void loop() {
+void roundManager() {
     if (GameRound == 3) {
-        Serial.println("Game Over. Maximum game rounds reached.");
-        delay(5000);
-        GameRound = 0;
-        playing = false;
-        Serial.println("Game round reset. Ready for a new game.");
-        return;
+    Serial.println("Game Over. Maximum game rounds reached.");
+    delay(5000);
+    GameRound = 0;
+    playing = false;
+    Serial.println("Game round reset. Ready for a new game.");
     }
 
+    if (GameRound == 0) {
+        Serial.println("Starting new game round.");
+        points = 0;
+        pointsStart = 0;
+        delay(5000);
+    }
+}
+
+void loop() {
+
+    roundManager();
+
     Serial.println("Shoot ball to begin the game.");
+
+    playing = true;
     while (playing) {
+
+        // Check for flipper button presses and bumper detection
         if (flipperButtonRechts()) FlipperRechts();
         if (flipperButtonLinks()) flipperLinks();
+        if (bumperDetected()) PointsBuffer(5, 100);
 
-        if (bumperDetected()) {
-            PointsBuffer(100, 100);
-        }
-
-        PlayerDeadDection();
-        Updatedisplay(points);
+        PlayerDeadDection(); //check if player is dead
+        Updatedisplay(points); // update the display with the current points
     }
 }
