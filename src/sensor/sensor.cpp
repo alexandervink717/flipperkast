@@ -14,7 +14,7 @@ void sensorSetup()
     Wire.write(0);                   // set to zero (wakes up the MPU-6050)
     Wire.endTransmission(true);      // close connection
 
-    
+
 }
 
 bool sensorBallDetectedLow()
@@ -30,13 +30,7 @@ bool bumperDetected()
     return false;
 }
 
-bool flipperButtonRechts()
-{
-    // Implementation for detecting the right flipper button
-    return false;
-}
-
-bool flipperButtonLinks()
+bool flipperButton(char LorR)
 {
     // Implementation for detecting the left flipper button
     return false;

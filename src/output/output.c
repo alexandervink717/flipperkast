@@ -9,6 +9,6 @@ void FlipperRechts() {
     // Implementation for moving the right flipper
 }
 
-void flipperLinks() {
+void FlipperLinks() {
     // Implementation for moving the left flipper
 }

@@ -67,8 +67,8 @@ void loop() {
     while (playing) {
 
         // Check for flipper button presses and bumper detection
-        if (flipperButtonRechts()) FlipperRechts();
-        if (flipperButtonLinks()) flipperLinks();
+        if (flipperButton('R')) FlipperRechts();// not done
+        if (flipperButton('L')) FlipperLinks();// not done
         if (bumperDetected()) PointsBuffer(5, 100);
 
         PlayerDeadDection(); //check if player is dead

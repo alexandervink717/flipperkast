@@ -10,8 +10,7 @@ extern "C" {
 void sensorSetup(); // Initialize the sensor
 bool sensorBallDetectedLow(); // Check if a ball is detected at low
 bool bumperDetected(); // Check if a bumper is detected
-bool flipperButtonRechts(); // Check if the right flipper button is pressed
-bool flipperButtonLinks(); // Check if the left flipper button is pressed
+bool flipperButton(char LorR); // Check if the left or right flipper button is pressed
 bool tilted(); // Check if the machine is tilted
 
 #ifdef __cplusplus
