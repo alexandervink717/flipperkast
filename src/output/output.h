@@ -9,7 +9,7 @@ extern "C" {
 
 bool Updatedisplay(int points); // Update the display with the current points
 void FlipperRechts(); // Move the right flipper
-void flipperLinks(); // Move the left flipper
+void FlipperLinks(); // Move the left flipper
 
 #ifdef __cplusplus
 }
