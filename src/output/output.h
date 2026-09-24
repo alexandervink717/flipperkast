@@ -7,6 +7,7 @@
 extern "C" {
 #endif
 
+void displaySetup(); // Initialize the display
 bool Updatedisplay(int points); // Update the display with the current points
 void FlipperRechts(); // Move the right flipper
 void FlipperLinks(); // Move the left flipper

@@ -11,8 +11,9 @@ bool playing = false;
 unsigned long lastPointsTime = 0;
 
 void setup() {
-    sensorSetup();
     Serial.begin(9600);
+    sensorSetup();
+    displaySetup();
 }
 
 // Detects if the player died, handles free retry or round increment

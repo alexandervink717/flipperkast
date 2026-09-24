@@ -8,6 +8,8 @@ const int MPUaddr = 0x68;
 
 void sensorSetup()
 {
+    Wire.begin(); // start the I2C bus
+
     // tilt
     Wire.beginTransmission(MPUaddr); // open connection
     Wire.write(0x6B);                // PWR_MGMT_1 register
