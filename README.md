@@ -1,7 +1,6 @@
 # Flipperkast
 
-Arduino-project voor een flipperkast. De code is opgedeeld in game logic
-(`flipperkast.ino`), sensor (`src/sensor/`) en output (`src/output/`).
+Arduino-project voor een flipperkast. dit is voor de Hogeschool rotterdam introductie week
 
 De Tinkercad-schakeling is `tinkercad.png`.
 
